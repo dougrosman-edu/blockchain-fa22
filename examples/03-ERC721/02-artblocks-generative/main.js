@@ -110,6 +110,7 @@ setTimeout(function(){
 let x = 0;
 let shouldMint = true;
 
+// this is basically the regular p5.js draw() function
 async function draw() {
   if(started) {
     background(127);
