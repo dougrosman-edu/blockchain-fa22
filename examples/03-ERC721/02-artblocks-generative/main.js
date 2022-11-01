@@ -10,10 +10,6 @@ if(CONNECT_AUTOMATICALLY) {
   connectButton.onclick = setup;
 }
 
-// GLOBAL VARIABLES
-let contractWithSigner;
-let walletAddress;
-
 async function setup() {
 
   // INITIALIZAING STEPS (SKIP TO THE BOTTOM TO WRITE YOUR OWN CODE)
@@ -95,10 +91,15 @@ async function setup() {
 
   
   //---------------P5.JS----------------------------------//
+  // pretend this is where setup starts
   createCanvas(400, 400);
   background(127);
   
 }
+
+// GLOBAL VARIABLES
+let contractWithSigner;
+let walletAddress;
 
 // this delays the draw loop from starting on page load
 let started = false;
