@@ -91,7 +91,7 @@ async function setup() {
 
   
   //---------------P5.JS----------------------------------//
-  // pretend this is where setup starts
+  // pretend this is where setup() starts
   createCanvas(400, 400);
   background(127);
   
