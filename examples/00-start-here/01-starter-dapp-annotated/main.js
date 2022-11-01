@@ -1,6 +1,6 @@
 // Set CONNECT_AUTOMATICALLY to 'true' to automatically connect to Web3 Provider on page load. (main() will be called automatically when the page loads)
 // Set CONNECT_AUTOMATICALLY to 'false' to enable "click to connect" button. (main() will be called when user clicks 'Connect' button)
-const CONNECT_AUTOMATICALLY = true;
+const CONNECT_AUTOMATICALLY = false;
 
 if(CONNECT_AUTOMATICALLY) {
   main();
@@ -56,7 +56,7 @@ async function main() {
 
 
 
-  // Connect to a Web3 provider (MetaMask in most cases)
+  // (REQUIRED) Connect to a Web3 provider (MetaMask in most cases)
   const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 
 
@@ -110,10 +110,10 @@ async function main() {
   // Enable the 'Increase Number' button now that the user can execute transactions
   increaseNumButton.removeAttribute("disabled");
 
-  // Store the Signer (the account signed in to MetaMask) in a variable
+  // (REQUIRED) Store the Signer (the account signed in to MetaMask) in a variable
   const signer = provider.getSigner();
 
-  // Create a contract object based on the contract address and contract ABI from abi.js
+  // (REQUIRED) Create a contract object based on the contract address and contract ABI from abi.js
   const contract = new ethers.Contract(contractAddress, contractABI, provider);
 
   // Use contractWithSigner whenever you have to execute a contract function that requires a transaction
