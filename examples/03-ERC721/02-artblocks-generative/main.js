@@ -104,7 +104,7 @@ let walletAddress;
 // this delays the draw loop from starting on page load
 let started = false;
 setTimeout(function(){
-  started = true;;
+  started = true;
 }, 1000);
 
 let x = 0;
