@@ -1,0 +1,2 @@
+var contractAddress = "";
+var contractABI = [];
