@@ -53,10 +53,20 @@ async function main() {
   const contract = new ethers.Contract(contractAddress, contractABI, provider);
   const contractWithSigner = contract.connect(signer);
 
+  const signerAddress = await signer.getAddress();
+
   //----------------------------------------------------//
   //-----------ADD YOUR CODE BELOW THIS LINE------------//
   //----------------------------------------------------//
 
+  console.log(variableFromSketch);
 
+  const tokenURI = `{"name":"test name", description:"test description", "image":"${variableFromSketch}"}`
+
+  mintButton.onclick = function() {
+    contractWithSigner.safeMint(signerAddress, tokenURI)
+  }
+
+  console.log(await contract.tokenURI(3))
 
 }

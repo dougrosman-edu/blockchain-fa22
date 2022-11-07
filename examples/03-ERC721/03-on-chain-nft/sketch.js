@@ -4,7 +4,6 @@
 const WALLET_ADDRESS = "0x80b6De9D077977798f357260F30b985dC7F1Bbb2"
 const WALLET_LENGTH = WALLET_ADDRESS.length;
 
-
 // aesthetic variables taken from wallet address;
 let __bgColor;
 let __squareFill;
@@ -12,11 +11,15 @@ let __squareStroke;
 let __squareQuantity;
 let __squareSize;
 
-function setup() {
-    createCanvas(350, 350);
-    
+let variableFromSketch;
 
-    strokeWeight(3);
+function setup() {
+    createCanvas(64, 64);
+    pixelDensity(1);
+    
+    strokeWeight(1);
+
+    createButton("Mint").id("mintButton");
 
     __bgColor = "#" + WALLET_ADDRESS.substring(WALLET_LENGTH - 6, WALLET_LENGTH);
 
@@ -28,10 +31,9 @@ function setup() {
     __squareQuantity = map(__squareQuantity, 0, 256, 1, 256);
 
     __squareSize = unhex(WALLET_ADDRESS.substring(WALLET_LENGTH - 20, WALLET_LENGTH - 22));
-    __squareSize = map(__squareSize, 0, 256, 20, 60);
+    __squareSize = map(__squareSize, 0, 256, 5, 10);
 
     background(__bgColor);
-
     for(let i = 0; i < __squareQuantity; i++) {
 
         fill(__squareFill);
@@ -40,10 +42,12 @@ function setup() {
     }
 
 
-    
-    let dataURL = defaultCanvas0.toDataURL();
+    let dataURL = defaultCanvas0.toDataURL('image/jpeg', 0.1);
     const base64 = getBase64StringFromDataURL(dataURL);
-    console.log(base64);
+    console.log(base64)
+    variableFromSketch = dataURL;
+    console.log(dataURL);
+    
 }
 
 const getBase64StringFromDataURL = (dataURL) =>
