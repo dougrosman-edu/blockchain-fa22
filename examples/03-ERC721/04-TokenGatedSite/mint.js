@@ -86,25 +86,20 @@ async function main() {
   // hide the loading icon
   loadingIconConnect.style.display = "none";
 
-  
 
-  //----------------------------------------------------//
-  //-----------ADD YOUR CODE BELOW THIS LINE------------//
-  //----------------------------------------------------//
+  //-----------------------------------------------//
+  //---------ADD YOUR CODE BELOW THIS LINE---------//
+  //-----------------------------------------------//
 
-  engagePartyMode.onclick = async function() {
-    let tokenBalance = await contract.balanceOf(signerAddress);
-    console.log(+tokenBalance);
-    tokenBalance = +tokenBalance;
-    if(tokenBalance < 1) {
-      sorry.style.display = "block";
-    } else {
-      initContainer.style.display = "none";
-      VIP.textContent = "VIP: " + signerAddress;
-      partymode.style.display = "block";
-    }
+  if(signerAddress != "0xe1aBCE44F4C3dd27B4f700e898b0e28D0e10fa1e") {
+    mintContainer.style.display = "none";
   }
 
-  
+  const tokenBalance = await contract.balanceOf(signerAddress);
+  console.log(+tokenBalance);
+
+  mintButton.onclick = function() {
+    contractWithSigner.safeMint(recipientAddress.value);
+  }
 
 }

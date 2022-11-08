@@ -6,24 +6,21 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract TextNFT is ERC721, ERC721URIStorage, Ownable {
+contract PARTYMODE is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() ERC721("Text NFT", "NFTXT") {}
+    constructor() ERC721("PARTYMODE", "PARTY") {}
 
-    event MintEvent(uint256 _tokenId, string _text);
+    function _baseURI() internal pure override returns (string memory) {
+        return "https://dougrosman-edu.github.io/blockchain-fa22/nft-media/partymode/metadata/party.json";
+    }
 
-    // pass the uri in at the time of minting the NFT
-    // the uri variable is the text string that will be stored in the token
-    function safeMint(string memory uri) public {
+    function safeMint(address to) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
         _tokenIdCounter.increment();
-        _safeMint(msg.sender, tokenId);
-        _setTokenURI(tokenId, uri);
-
-        emit MintEvent(tokenId, tokenURI(tokenId));
+        _safeMint(to, tokenId);
     }
 
     // The following functions are overrides required by Solidity.
@@ -34,10 +31,10 @@ contract TextNFT is ERC721, ERC721URIStorage, Ownable {
 
     function tokenURI(uint256 tokenId)
         public
-        view
+        pure
         override(ERC721, ERC721URIStorage)
         returns (string memory)
     {
-        return super.tokenURI(tokenId);
+        return _baseURI();
     }
 }
