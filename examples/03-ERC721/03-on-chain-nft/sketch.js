@@ -14,7 +14,7 @@ let __squareSize;
 let variableFromSketch;
 
 function setup() {
-    createCanvas(64, 64);
+    createCanvas(400, 400);
     pixelDensity(1);
     
     strokeWeight(1);
@@ -31,7 +31,7 @@ function setup() {
     __squareQuantity = map(__squareQuantity, 0, 256, 1, 256);
 
     __squareSize = unhex(WALLET_ADDRESS.substring(WALLET_LENGTH - 20, WALLET_LENGTH - 22));
-    __squareSize = map(__squareSize, 0, 256, 5, 10);
+    __squareSize = map(__squareSize, 0, 256, 5, 50);
 
     background(__bgColor);
     for(let i = 0; i < __squareQuantity; i++) {
@@ -42,7 +42,7 @@ function setup() {
     }
 
 
-    let dataURL = defaultCanvas0.toDataURL('image/jpeg', 0.1);
+    let dataURL = defaultCanvas0.toDataURL('image/jpeg', .1);
     const base64 = getBase64StringFromDataURL(dataURL);
     console.log(base64)
     variableFromSketch = dataURL;
