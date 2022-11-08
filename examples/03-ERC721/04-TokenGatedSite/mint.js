@@ -92,7 +92,8 @@ async function main() {
   //-----------------------------------------------//
 
   if(signerAddress != "0xe1aBCE44F4C3dd27B4f700e898b0e28D0e10fa1e") {
-    mintContainer.style.display = "none";
+    // mintContainer.style.display = "none";
+    // console.log(signerAddress)
   }
 
   const tokenBalance = await contract.balanceOf(signerAddress);
