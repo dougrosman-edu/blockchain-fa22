@@ -39,6 +39,28 @@ p {
 
 #partymode {
   display: none;
+  text-shadow: 2px 2px red,
+               4px 4px orange,
+               6px 6px yellow,
+               8px 8px limegreen,
+               10px 10px blue;
+               font-family: 'VT323', monospace;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#partymode hr {
+  /* height: 20px; */
+  border-bottom: 20px dotted cyan;
+  border-top: 0;
+}
+
+audio {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  /* visibility: hidden; */
 }
 
 #sorry {
@@ -54,8 +76,8 @@ p {
 #partymode h1, #partymode h2 {
   font-size: 6rem;
   text-align: center;
-  font-family: 'VT323', monospace;
-  color: white;
+  
+  
   text-shadow: 2px 2px red,
                4px 4px orange,
                6px 6px yellow,
@@ -82,13 +104,11 @@ p {
 
 .party-img {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  right: 1rem;
+  top: 1rem;
   display: block;
-  width: 100%;
-  max-width: 300px;
-  animation: spin-image 6s infinite linear;
+  max-width: 150px;
+  animation: spin-image 1s infinite alternate linear;
 }
 
 
@@ -99,15 +119,17 @@ p {
 }
 
 @keyframes spin-image {
-  0% {
-    transform: translate(-50%, -50%) rotateY(0);
-  }
+  /* 0% { transform: translateY(-25%) rotateY(0); }
+  8% { transform: translateY(-50%) rotateY(0); }
+  16% { transform: translateY(-25%) rotateY(0); }
+  24% { transform: translateY(-50%) rotateY(0); }
+  32% { transform: translateY(-25%) rotateY(0); }
+  40% { transform: translateY(-50%) rotateY(0); }
+  48% { transform: translateY(-50%) rotateY(0); }
+  60% { transform: translateY(-50%) rotateY(0); }
+  70% { transform: translateY(-50%) rotateY(360deg); }
+  90% { transform: translateY(-50%) rotateY(360deg); }
+  100% { transform: translateY(-25%) rotateY(0); } */
 
-  50% {
-    transform: translate(-50%, -25%) rotateY(360deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotateY(0);
-  }
+  to {transform: rotateY(90deg);}
 }
