@@ -102,6 +102,7 @@ async function main() {
       initContainer.style.display = "none";
       VIP.textContent = "VIP: " + signerAddress;
       partymode.style.display = "block";
+      tunez.play();
     }
   }
 
