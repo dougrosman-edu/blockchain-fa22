@@ -59,14 +59,11 @@ async function main() {
   //-----------ADD YOUR CODE BELOW THIS LINE------------//
   //----------------------------------------------------//
 
-  console.log(variableFromSketch);
+  // console.log(variableFromSketch);
 
   const tokenURI = `{"name":"test name", description:"test description", "image":"${variableFromSketch}"}`
 
   mintButton.onclick = function() {
     contractWithSigner.safeMint(signerAddress, tokenURI)
   }
-
-  console.log(await contract.tokenURI(3))
-
 }
